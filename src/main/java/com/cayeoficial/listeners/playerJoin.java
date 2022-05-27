@@ -3,7 +3,7 @@ package com.cayeoficial.listeners;
 import com.cayeoficial.helpers.ConfigHelper;
 import com.cayeoficial.helpers.MessageHelper;
 import com.cayeoficial.helpers.SpawnHelper;
-import com.cayeoficial.lobbytools;
+import com.cayeoficial.LobbyTools;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
@@ -13,8 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class playerJoin implements Listener {
-    private final lobbytools plugin;
-    public playerJoin(lobbytools plugin) {
+    private final LobbyTools plugin;
+    public playerJoin(LobbyTools plugin) {
         this.plugin = plugin;
     }
 

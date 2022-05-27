@@ -1,13 +1,13 @@
 package com.cayeoficial.listeners;
 
-import com.cayeoficial.lobbytools;
+import com.cayeoficial.LobbyTools;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 
 public class foodLevelChange implements Listener {
-    private final lobbytools plugin;
-    public foodLevelChange(lobbytools plugin) {
+    private final LobbyTools plugin;
+    public foodLevelChange(LobbyTools plugin) {
         this.plugin = plugin;
     }
     @EventHandler

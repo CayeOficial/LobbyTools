@@ -1,7 +1,7 @@
 package com.cayeoficial.listeners;
 
 import com.cayeoficial.helpers.ConfigHelper;
-import com.cayeoficial.lobbytools;
+import com.cayeoficial.LobbyTools;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -9,8 +9,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import java.util.Objects;
 
 public class entityDamageByEntity implements Listener {
-    private final lobbytools plugin;
-    public entityDamageByEntity(lobbytools plugin) {
+    private final LobbyTools plugin;
+    public entityDamageByEntity(LobbyTools plugin) {
         this.plugin = plugin;
     }
     @EventHandler

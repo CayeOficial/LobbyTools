@@ -7,6 +7,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -18,7 +19,7 @@ public final class lobbytools extends JavaPlugin {
         getLogger().info("§aInitializing Lobby-Tools modules...");
         try {
         createConfig();
-        events();
+        registerEvents();
         commands();
         } catch(Exception exception) {
         getLogger().info("§c[ERROR] Failed to initialize plugin's modules.");
@@ -31,18 +32,20 @@ public final class lobbytools extends JavaPlugin {
     public void onDisable() {
         getLogger().info("§cDisabling Lobby-Tools");
     }
-    public void events() {
+    public void registerEvents() {
         final PluginManager pluginManager = this.getServer().getPluginManager();
-        pluginManager.registerEvents(new blockPlace(this), this);
-        pluginManager.registerEvents(new blockBreak(this), this);
-        pluginManager.registerEvents(new entityDamage(this), this);
-        pluginManager.registerEvents(new entityDamageByEntity(this), this);
-        pluginManager.registerEvents(new foodLevelChange(this), this);
-        pluginManager.registerEvents(new playerJoin(this), this);
-        pluginManager.registerEvents(new playerLeft(this), this);
-        pluginManager.registerEvents(new playerChat(this), this);
-        pluginManager.registerEvents(new playerInteract(this), this);
-
+        Arrays.asList(
+                new blockPlace(this),
+                new blockBreak(this),
+                new entityDamage(this),
+                new entityDamageByEntity(this),
+                new foodLevelChange(this),
+                new playerJoin(this),
+                new playerLeft(this),
+                new playerChat(this),
+                new playerInteract(this)
+        ).forEach(event -> pluginManager.registerEvents(event, this));
+                
     }
     public void commands() {
         Objects.requireNonNull(this.getCommand("setspawn")).setExecutor(new SetSpawnCommand(this));

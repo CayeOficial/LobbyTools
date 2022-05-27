@@ -1,14 +1,14 @@
 package com.cayeoficial.listeners;
 
-import com.cayeoficial.lobbytools;
+import com.cayeoficial.LobbyTools;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import com.cayeoficial.helpers.ConfigHelper;
 
 public class playerLeft implements Listener {
-    private final lobbytools plugin;
-    public playerLeft(lobbytools plugin) {
+    private final LobbyTools plugin;
+    public playerLeft(LobbyTools plugin) {
         this.plugin = plugin;
     }
     @EventHandler

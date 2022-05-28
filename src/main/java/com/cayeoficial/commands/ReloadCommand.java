@@ -12,21 +12,26 @@ import org.jetbrains.annotations.NotNull;
 
 public class ReloadCommand implements CommandExecutor {
     private final LobbyTools plugin;
-    public ReloadCommand(LobbyTools plugin) {
-        this.plugin = plugin;
-    }
+    public ReloadCommand(LobbyTools plugin) {this.plugin = plugin;}
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
+
+        /*
+         * Check if the command is executed via console
+         */
         if(!(sender instanceof Player)) {
             Bukkit.getConsoleSender().sendMessage(ConfigHelper.getString("Messages.reload-message"));
             plugin.reloadConfig();
         } else {
-            Player p = (Player) sender;
-            if(p.hasPermission("lobbytools.admin")) {
+            /*
+             * Reload the plugin if it's a player and have permissions
+             */
+            Player player = (Player) sender;
+            if(player.hasPermission("LobbyTools.admin")) {
                 plugin.reloadConfig();
-                MessageHelper.sendMessage(p, "Messages.reload-message");
+                MessageHelper.sendMessage(player, "Messages.reload-message");
             } else {
-                MessageHelper.sendMessage(p, "Messages.no-permission-error");
+                MessageHelper.sendMessage(player, "Messages.no-permission-error");
             }
 
         }

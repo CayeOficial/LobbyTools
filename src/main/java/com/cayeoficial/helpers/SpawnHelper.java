@@ -17,8 +17,8 @@ public class SpawnHelper {
      */
     static Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("LobbyTools");
 
+    static FileConfiguration config = plugin.getConfig();
     public static void sendToSpawn(Player player) {
-        FileConfiguration config = plugin.getConfig();
         World spawnWorld = Bukkit.getServer().getWorld(config.getString("Spawn.world"));
         double spawnPosY = config.getDouble("Spawn.x");
         double spawnPosX = config.getDouble("Spawn.y");
@@ -31,6 +31,15 @@ public class SpawnHelper {
             player.getLocation().setPitch(spawnPitch);
             player.teleport(spawn);
         }
+    }
+
+    public static void setSpawn(Player player) {
+        config.set("Spawn.world", player.getLocation().getWorld().getName());
+        config.set("Spawn.x", player.getLocation().getX());
+        config.set("Spawn.y", player.getLocation().getY());
+        config.set("Spawn.z", player.getLocation().getZ());
+        config.set("Spawn.yaw", player.getLocation().getYaw());
+        config.set("Spawn.pitch", player.getLocation().getPitch());
     }
 
 }

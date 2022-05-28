@@ -13,7 +13,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class SetSpawnCommand implements CommandExecutor {
     private final LobbyTools plugin;
-    public SetSpawnCommand(LobbyTools plugin) { this.plugin = plugin; }
+    public SetSpawnCommand(LobbyTools plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {

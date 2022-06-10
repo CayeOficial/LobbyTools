@@ -19,7 +19,18 @@ public class SpawnHelper {
 
     static FileConfiguration config = plugin.getConfig();
     public static void sendToSpawn(Player player) {
+        boolean teleportToSpawn = true;
         World spawnWorld = Bukkit.getServer().getWorld(config.getString("Spawn.world"));
+        if(spawnWorld == null) {
+        Bukkit.getServer().getLogger().warning("⚠ ##### IMPORTANT! ##### ⚠");
+        Bukkit.getServer().getLogger().warning("");
+        Bukkit.getServer().getLogger().warning("The world specified in Spawn section of the plugin does not exists!");
+        Bukkit.getServer().getLogger().warning("This may corrupt data! For safety purposes, the plugin will not teleport");
+        Bukkit.getServer().getLogger().warning("the player to te spawn untill you fix this.");
+        Bukkit.getServer().getLogger().warning("");
+        Bukkit.getServer().getLogger().warning("⚠ ##### IMPORTANT! ##### ⚠");
+        teleportToSpawn = false;
+        }
         double spawnPosY = config.getDouble("Spawn.x");
         double spawnPosX = config.getDouble("Spawn.y");
         double spawnPosZ = config.getDouble("Spawn.z");
@@ -27,9 +38,11 @@ public class SpawnHelper {
         float spawnPitch = (float) config.getDouble("Spawn.pitch");
         Location spawn = new Location(spawnWorld, spawnPosX, spawnPosY, spawnPosZ);
         if(isEnabled("Spawn.teleport-player-to-spawn")) {
-            spawn.setYaw(spawnYaw);
-            player.getLocation().setPitch(spawnPitch);
-            player.teleport(spawn);
+            if(teleportToSpawn) {
+                spawn.setYaw(spawnYaw);
+                player.getLocation().setPitch(spawnPitch);
+                player.teleport(spawn);
+            }
         }
     }
 

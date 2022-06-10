@@ -1,0 +1,10 @@
+name: LobbyTools
+version: 3.0
+main: com.cayeoficial.LobbyTools
+api-version: 1.13
+authors: [ CayeOficial ]
+commands:
+  setspawn:
+    description: Set the spawn!
+  ltreload:
+    description: Reload the plugin's configuration file

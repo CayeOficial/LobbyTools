@@ -11,10 +11,10 @@ Config:
   #block place, block break, enable pvp & enable damage will only work on the following world.
   #Edit this world please!
   world: "Lobby"
-  #Enable or disable the block place to everyone except people with "lobbytools.admin" permission
+  #Enable or disable the block place to everyone except people with "LobbyTools.admin" permission
   #False: disabled | True: enabled
   block-place: false
-  #Enable or disable the block break to everyone except people with "lobbytools.admin" permission
+  #Enable or disable the block break to everyone except people with "LobbyTools.admin" permission
   #False: disabled | True: enabled
   block-break: false
   #Enable the chat?
@@ -34,8 +34,8 @@ Config:
 OnJoin:
   #Send a message to a player when he joins
   enable-message-on-join: true
-  #The message that will be sent to the player when he joins if "enable-message-on-join" is true
-  #sUse %player_name% for player name & \n for break line
+  #The message which will be sent to the player when he joins if "enable-message-on-join" is true
+  #Use %player_name% for player name & \n for break line
   join-message: "&6&lWELCOME &f%player_name% &6&lTO &fYourServer\nThanks for use LobbyTools"
   #Launch a firework when a player join
   #This setting is quite funny, I recommend leave it to true
@@ -52,23 +52,23 @@ Spawn:
   ###############
   #   WARNING   #
   ###############
-  #Please do not modify this, use "/setspawn" command in-game for set the spawn
+  #⚠ Please do not modify this, use "/setspawn" command in-game for set the spawn
   world: "world"
   x: 100
   y: 100
   z: 100
   pitch: 90
   yaw: 90
-  #Message sent to the player when he ran /setspawn command
+  #Message which will be sent when /setspawn command is executed.
   spawn-set-message: "&aThe spawn has been successfully set"
 
 
 
 Messages:
-  #Message sent to a player that tried to break/place blocks without permission
+  #Message sent to a player who tried to break/place blocks without permission
   cannot-place-blocks: "&cSorry! You can't place blocks here"
   cannot-break-blocks: "&cSorry! You can't break blocks here"
-  #Message sent to a player when he talks on the chat but the chat is disabled
+  #Message sent to a player when he sends a message but the chat is disabled
   chat-is-disabled: "&cThe chat is disabled"
   #Message sent when the plugin configuration has been reloaded
   reload-message: "&cThe plugin has been reloaded"

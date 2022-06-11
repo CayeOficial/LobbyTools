@@ -2,6 +2,7 @@ package com.cayeoficial;
 
 import com.cayeoficial.commands.ReloadCommand;
 import com.cayeoficial.commands.SetSpawnCommand;
+import com.cayeoficial.helpers.UpdateHelper;
 import com.cayeoficial.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -22,6 +23,14 @@ public final class LobbyTools extends JavaPlugin implements Listener {
         plugin = this;
         getLogger().info("§aInitializing [Lobby-Tools]");
         getLogger().info("§aInitializing Lobby-Tools modules...");
+        new UpdateHelper(this, 98023).getVersion(version -> {
+            if(this.getDescription().getVersion().equals(version)) {
+                getLogger().info("§2Great!§a You're using the lastest version of LobbyTools, thanks for downloading!");
+            } else {
+                getLogger().info("§bThere's a new version of LobbyTools available");
+                getLogger().info("§bGet it at: https://www.spigotmc.org/resources/98023/");
+            }
+        });
         try {
         createConfig();
         registerEvents();
